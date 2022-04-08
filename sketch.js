@@ -1,4 +1,6 @@
-var u = 0.33;
+/*jshint esversion: 6 */
+
+var a = 2;
 var scalar = 300;
 var n = 0;
 var limite = 1000;
@@ -7,7 +9,7 @@ var step;
 
 function setup() {
   createCanvas(720, 720);
-  frameRate(2);
+  frameRate(60);
   
 }
 
@@ -23,7 +25,7 @@ function draw() {
   noFill();
   beginShape();
 
-  for( let i = 0; i < limite; i += step)
+  for(let i = 0; i < limite; i += step)
   {
     let result_array = functionPolar(i);
     //stroke(90,180,0);
@@ -36,7 +38,7 @@ function draw() {
   endShape();
 
   n++;
-  text(`${u.toFixed(3)}`,width/2 - 110, height/2 - 100);
+  text(`${a.toFixed(3)}`,width/2 - 110, height/2 - 100);
   text(`${n}\n${Math.pow(2,n)}`,width/2 - 60, height/2 - 100);
   if(n == 20)
   {
@@ -49,5 +51,5 @@ function draw() {
 
 function functionPolar(t)
 {
-  return new p5.Vector(scalar*Math.cos(t)*Math.sin(u*t) , scalar*Math.sin(u*t)*Math.sin(t));
+  return new p5.Vector(scalar*Math.cos(t)*Math.sin(a*t) , scalar*Math.sin(a*t)*Math.sin(t));
 }
